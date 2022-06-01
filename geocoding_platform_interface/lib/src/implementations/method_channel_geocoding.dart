@@ -32,10 +32,13 @@ class MethodChannelGeocoding extends GeocodingPlatform {
       );
 
       return Location.fromMaps(placemarks);
-    } on PlatformException catch (e) {
-      _handlePlatformException(e);
-      rethrow;
+    } catch (_) {
+      return <Location>[];
     }
+    // on PlatformException catch (e) {
+    //   _handlePlatformException(e);
+    //   rethrow;
+    // }
   }
 
   @override
